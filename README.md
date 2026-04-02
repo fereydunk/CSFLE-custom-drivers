@@ -1,5 +1,7 @@
 # CSFLE Custom Drivers — CipherTrust + Confluent
 
+> Available in both **Java** (root) and **Python** (`python/`).
+
 A Java implementation of a custom KMS driver for [Confluent Client-Side Field Level Encryption (CSFLE)](https://docs.confluent.io/platform/current/schema-registry/fundamentals/data-contracts.html#field-level-encryption) backed by [Thales CipherTrust Manager](https://cpl.thalesgroup.com/encryption/ciphertrust-manager).
 
 Confluent CSFLE natively supports AWS KMS, Azure Key Vault, and GCP KMS. This project shows how to plug in **any KMS** — CipherTrust in this case — using the `KmsDriver` / `KmsClient` / `Aead` extension points.
