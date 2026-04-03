@@ -6,8 +6,10 @@ Custom KMS driver implementations for [Thales CipherTrust Manager](https://cpl.t
 
 ```
 CipherTrust/
-├── java/      # Java implementation (Maven)
-├── python/    # Python implementation
+├── java/          # Java implementation (Maven)
+├── python/        # Python implementation
+├── .env.example   # Environment variable template
+├── INSTALL.md     # Azure deployment guide
 └── README.md
 ```
 
@@ -16,9 +18,16 @@ CipherTrust/
 - A running CipherTrust Manager instance (Community Edition or full) with an AES-256 key created
   → **New to CipherTrust?** See [INSTALL.md](./INSTALL.md) for step-by-step Azure deployment instructions
 - A Confluent Cloud cluster with Schema Registry enabled
-- Environment variables set (see `.env.example` in the repo root)
+- Environment variables set (see [.env.example](./.env.example) in this directory)
 
 ## Quick start
+
+```bash
+# From the CipherTrust/ directory:
+cp .env.example .env
+# Fill in your values, then:
+export $(grep -v '^#' .env | xargs)
+```
 
 **Java** — see [java/](./java/) or jump straight to:
 ```bash

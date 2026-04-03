@@ -16,18 +16,17 @@ python/
 ## Prerequisites
 
 - Python 3.8+
-- Environment variables set (see `.env.example` in the repo root)
+- Environment variables set (see `.env.example` in the `CipherTrust/` directory)
 
 ## Setup
 
 ```bash
-# From repo root
+# From the CipherTrust/ directory:
 cp .env.example .env
-# Fill in your values, then export from repo root:
+# Fill in your values, then:
 export $(grep -v '^#' .env | xargs)
 
-# Then install dependencies
-cd CipherTrust/python
+cd python
 pip install -r requirements.txt
 ```
 

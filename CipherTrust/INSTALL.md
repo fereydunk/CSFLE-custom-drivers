@@ -239,5 +239,6 @@ These map directly to the variables in `.env.example` at the repo root.
 ## What's next
 
 Once CipherTrust Manager is running and your KEK is created, set your environment
-variables (see `.env.example` in the repo root) and follow the [Java](./java/README.md)
-or [Python](./python/README.md) instructions to run the CSFLE producer and consumer.
+variables (see [.env.example](./.env.example) in this directory) and follow the
+[Java](./java/README.md) or [Python](./python/README.md) instructions to run the
+CSFLE producer and consumer.

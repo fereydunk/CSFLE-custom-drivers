@@ -29,17 +29,17 @@ java/
 
 - Java 21+
 - Maven 3.8+
-- Environment variables set (see `.env.example` in the repo root)
+- Environment variables set (see `.env.example` in the `CipherTrust/` directory)
 
 ## Setup
 
 ```bash
-# From repo root
+# From the CipherTrust/ directory:
 cp .env.example .env
 # Fill in your values, then:
 export $(grep -v '^#' .env | xargs)
 
-cd CipherTrust/java
+cd java
 mvn clean package
 ```
 
