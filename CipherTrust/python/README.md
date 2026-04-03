@@ -1,38 +1,49 @@
-# CSFLE Custom Drivers — Python
+# CipherTrust — Python
 
 Python implementation of the CipherTrust KMS driver for Confluent CSFLE.
 
-## Files
+## Structure
 
-| File | Purpose |
-|---|---|
-| `ciphertrust_kms_driver.py` | Core driver — `KmsDriver`, `KmsClient`, `Aead` backed by CipherTrust REST API |
-| `config.py` | All config read from environment variables |
-| `producer.py` | Registers schema with encryption rule, produces encrypted records |
-| `consumer.py` | Consumes and transparently decrypts records |
+```
+python/
+├── ciphertrust_kms_driver.py   # Core driver — KmsDriver, KmsClient, Aead
+├── config.py                   # All config from environment variables
+├── producer.py                 # Registers schema, produces encrypted records
+├── consumer.py                 # Consumes and transparently decrypts records
+└── requirements.txt
+```
+
+## Prerequisites
+
+- Python 3.8+
+- Environment variables set (see `.env.example` in the repo root)
 
 ## Setup
 
-1. Install dependencies:
-
 ```bash
+# From repo root
+cp .env.example .env
+# Fill in your values, then:
+export $(grep -v '^#' .env | xargs)
+
+cd CipherTrust/python
 pip install -r requirements.txt
 ```
 
-2. Set environment variables (same as Java — see `.env.example` in the repo root):
+## Run
 
-```bash
-export $(grep -v '^#' ../.env | xargs)
-```
-
-3. Produce:
+Produce encrypted records:
 
 ```bash
 python producer.py
 ```
 
-4. Consume:
+Consume and decrypt:
 
 ```bash
 python consumer.py
 ```
+
+## Schema and encryption rule
+
+The Avro schema tags `ssn` and `credit_card` as `PII`. A single CSFLE rule encrypts all `PII`-tagged fields using the CipherTrust KEK.
