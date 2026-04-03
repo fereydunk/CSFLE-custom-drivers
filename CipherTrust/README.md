@@ -14,6 +14,7 @@ CipherTrust/
 ## Prerequisites
 
 - A running CipherTrust Manager instance (Community Edition or full) with an AES-256 key created
+  → **New to CipherTrust?** See [INSTALL.md](./INSTALL.md) for step-by-step Azure deployment instructions
 - A Confluent Cloud cluster with Schema Registry enabled
 - Environment variables set (see `.env.example` in the repo root)
 
