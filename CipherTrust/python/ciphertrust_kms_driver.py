@@ -6,7 +6,7 @@ confluent-kafka's schema registry encryption framework, using the
 CipherTrust Manager REST API for AES-256-GCM key wrap/unwrap.
 
 Key URL format: ciphertrust-kms://<ct_host>/keys/<key_name>
-Example:        ciphertrust-kms://20.3.104.215/keys/poc-aes256-key
+Example:        ciphertrust-kms://192.168.1.10/keys/my-aes256-key
 """
 
 import base64
@@ -173,7 +173,7 @@ class CipherTrustKmsDriver:
         CipherTrustKmsDriver.register(username="admin", password="...")
 
     Then reference KEKs with:
-        kek_url = "ciphertrust-kms://20.3.104.215/keys/poc-aes256-key"
+        kek_url = "ciphertrust-kms://192.168.1.10/keys/my-aes256-key"
     """
 
     def __init__(self, username: str, password: str) -> None:
