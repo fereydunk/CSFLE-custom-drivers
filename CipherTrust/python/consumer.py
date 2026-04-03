@@ -12,7 +12,6 @@ from confluent_kafka import Consumer
 from confluent_kafka.schema_registry import SchemaRegistryClient
 from confluent_kafka.schema_registry.avro import AvroDeserializer
 from confluent_kafka.schema_registry.rules.encryption.encrypt_executor import FieldEncryptionExecutor
-from confluent_kafka.schema_registry.rules.encryption.kms_driver_registry import register_kms_driver
 from confluent_kafka.serialization import SerializationContext, MessageField
 
 from ciphertrust_kms_driver import CipherTrustKmsDriver

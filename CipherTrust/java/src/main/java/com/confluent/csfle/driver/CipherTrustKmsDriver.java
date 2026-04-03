@@ -18,7 +18,7 @@ import java.util.Optional;
  *
  * KEK URL format used in schema rules:
  *   encrypt.kms.type   = "ciphertrust-kms"
- *   encrypt.kms.key.id = "20.3.104.215/keys/poc-aes256-key"
+ *   encrypt.kms.key.id = "<CT_HOST>/keys/<KEK_NAME>"
  */
 public class CipherTrustKmsDriver implements KmsDriver {
 

@@ -1,9 +1,9 @@
 """
 CSFLE Producer — encrypts sensitive fields using CipherTrust Manager as KMS.
 
-Fields tagged PII (ssn) and FINANCIAL (credit_card) are encrypted at rest
-using Confluent's field-level encryption. The KEK lives in CipherTrust;
-DEKs are auto-generated, wrapped by the KEK, and stored in the DEK Registry.
+Fields tagged PII (ssn, credit_card) are encrypted at rest using Confluent's
+field-level encryption. The KEK lives in CipherTrust; DEKs are auto-generated,
+wrapped by the KEK, and stored in the DEK Registry.
 """
 
 import warnings
@@ -17,11 +17,10 @@ from confluent_kafka.schema_registry.common.schema_registry_client import (
     Metadata, MetadataTags, RuleSet, Rule, RuleKind, RuleMode, RuleParams
 )
 from confluent_kafka.schema_registry.rules.encryption.encrypt_executor import FieldEncryptionExecutor
-from confluent_kafka.schema_registry.rules.encryption.kms_driver_registry import register_kms_driver
 from confluent_kafka.serialization import SerializationContext, MessageField
 
 from ciphertrust_kms_driver import CipherTrustKmsDriver
-from config import KAFKA_CONFIG, SR_CONFIG, CIPHERTRUST_CONFIG, TOPIC, KEK_NAME
+from config import KAFKA_CONFIG, SR_CONFIG, CIPHERTRUST_CONFIG, TOPIC, KEK_NAME, KEK_URL
 
 # --------------------------------------------------------------------------
 # Register CipherTrust KMS driver + encryption executor
@@ -48,7 +47,7 @@ SCHEMA_STR = json.dumps({
 })
 
 # kms.key.id = everything after "ciphertrust-kms://"
-KMS_KEY_ID = "20.3.104.215/keys/" + KEK_NAME
+KMS_KEY_ID = KEK_URL[len("ciphertrust-kms://"):]
 
 ruleset = RuleSet(
     migration_rules=None,

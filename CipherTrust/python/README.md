@@ -23,9 +23,10 @@ python/
 ```bash
 # From repo root
 cp .env.example .env
-# Fill in your values, then:
+# Fill in your values, then export from repo root:
 export $(grep -v '^#' .env | xargs)
 
+# Then install dependencies
 cd CipherTrust/python
 pip install -r requirements.txt
 ```
